@@ -1,4 +1,6 @@
-![leetcode](https://github.com/user-attachments/assets/1369b427-31ab-4efb-a4de-1879cc49e5e4)
+<img width="1000" height="420" alt="image" src="https://github.com/user-attachments/assets/59c6891b-379b-49f6-a8d5-d098e17dcbdf" />
+
+
 
 
 
