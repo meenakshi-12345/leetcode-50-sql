@@ -1,0 +1,6 @@
+SELECT TOP 1
+CASE WHEN COUNT(*)>1 THEN NULL 
+     WHEN COUNT(*)=1 THEN num END AS num
+     FROM MyNumbers 
+     GROUP BY num 
+     ORDER BY num DESC
