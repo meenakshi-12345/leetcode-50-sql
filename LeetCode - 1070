@@ -1,0 +1,7 @@
+WITH CTE AS (
+SELECT product_id, year AS first_year, DENSE_RANK() OVER(PARTITION BY product_id ORDER BY year) AS rnk, quantity,price
+FROM Sales
+)
+SELECT product_id, first_year, quantity,price
+FROM CTE 
+WHERE rnk<2
