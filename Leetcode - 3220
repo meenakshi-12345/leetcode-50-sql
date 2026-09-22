@@ -1,0 +1,13 @@
+
+WITH CTE AS (
+SELECT transaction_date, 
+CASE WHEN amount%2!=0 THEN SUM(amount) ELSE 0 END AS odd_sum,
+CASE WHEN amount%2=0  THEN SUM(amount) ELSE 0 END AS even_sum 
+
+
+FROM transactions
+GROUP BY transaction_date,amount
+)
+SELECT transaction_date, SUM(odd_sum) AS odd_sum,SUM(even_sum) AS even_sum
+FROM CTE 
+GROUP BY transaction_date
