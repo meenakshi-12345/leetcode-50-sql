@@ -1,0 +1,8 @@
+WITH CTE AS (
+SELECT u.name AS NAME,t.account, SUM(t.amount) AS BALANCE
+FROM transactions t
+JOIN Users u ON u.account = t.account
+GROUP BY t.account,u.name
+HAVING SUM(t.amount)>10000
+)
+SELECT NAME,BALANCE
