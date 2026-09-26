@@ -1,0 +1,20 @@
+WITH CTE AS (
+SELECT TOP 1 u.name  AS results 
+FROM Users u
+JOIN MovieRating m ON u.user_id = m.user_id 
+GROUP BY u.name 
+ORDER BY COUNT(*) DESC, u.name ASC) ,
+
+CTE2 AS (
+
+SELECT TOP 1 m.title AS results
+FROM Movies m 
+JOIN MovieRating d ON m.movie_id = d.movie_id 
+WHERE d.created_at >= '2020-02-01'
+AND d.created_at < '2020-03-01'
+GROUP BY m.title 
+ORDER BY  AVG(CAST(d.rating AS FLOAT))  DESC, m.title ASC)
+
+SELECT results FROM CTE 
+UNION ALL 
+SELECT results FROM CTE2
